@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sowo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Sophia Wood</h1>
+      <p class="bio">Art-Math-Code | Time at the Recurse Center</p>
+      <nav>
+        <a href="#blog">Updates</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </header>
+
+    <section id="blog">
+      <h2>Updates</h2>
+
+      <div class="week-container">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <h3>Week 1 - January</h3>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="week-content">
+          <article class="blog-post">
+            <div class="date">January 6, 2024</div>
+            <ul>
+              <li>Started my journey at Recurse Center today!</li>
+              <li>
+                Played with the genuary prompt for landscapes with primitive
+                shapes.
+              </li>
+            </ul>
+          </article>
+          <!-- More posts for week 1 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Add this script at the end of your body tag -->
+    <script>
+      function toggleWeek(header) {
+        const content = header.nextElementSibling;
+        const isActive = header.classList.contains("active");
+
+        // Close all sections
+        document.querySelectorAll(".week-header").forEach((h) => {
+          h.classList.remove("active");
+          h.nextElementSibling.classList.remove("active");
+        });
+
+        // Toggle clicked section
+        if (!isActive) {
+          header.classList.add("active");
+          content.classList.add("active");
+        }
+      }
+
+      // Open the most recent week by default
+      document
+        .querySelector(".week-container")
+        .querySelector(".week-header")
+        .click();
+    </script>
+
+    <section id="projects">
+      <h2>Projects and Code</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3 class="project-title">stream of me</h3>
+          <p class="project-description">
+            An experimental journal that will change and grow through this time.
+          </p>
+          <div class="tags">
+            <span class="tag">html</span>
+            <span class="tag">css</span>
+            <span class="tag">p5js</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/fractalkitty/fractalkitty.github.io"
+              target="_blank"
+              >GitHub</a
+            >
+            <a href="https://www.streamof.me/" target="_blank">streamof.me</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Genuary 2025</h3>
+          <p class="project-description">
+            Creative coding using the
+            <a href="https://genuary.art/" target="_blank">Genuary</a> prompts.
+          </p>
+          <div class="tags">
+            <span class="tag">p5js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://codepen.io/collection/myrZWx" target="_blank"
+              >CodePen</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
