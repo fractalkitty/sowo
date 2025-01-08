@@ -190,3 +190,41 @@ nav a:hover {
   transform: scale(1.01);
   transition: transform 0.3s ease;
 }
+
+#ideas {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+#ideas {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.ideas-container {
+  margin-top: 1.5rem;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ideas-list {
+  list-style-type: none;
+  padding: 0;
+  max-width: 800px;
+}
+
+.ideas-list li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.ideas-list li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #666;
+}
