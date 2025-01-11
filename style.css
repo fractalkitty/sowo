@@ -228,3 +228,9 @@ nav a:hover {
   left: 0;
   color: #666;
 }
+
+.frames {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}
