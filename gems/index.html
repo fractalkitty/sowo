@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Little Gems</h1>
+    <div class="controls">
+      <div>
+        <label>Segments:</label>
+        <input
+          class="input1"
+          type="range"
+          id="segments"
+          min="3"
+          max="12"
+          value="6"
+          onInput="updateShape()"
+        />
+        <span id="segmentsValue">6</span>
+      </div>
+      <div>
+        <label>Twist:</label>
+        <input
+          class="input1"
+          type="range"
+          id="twist"
+          min="0"
+          max="60"
+          value="30"
+          onInput="updateShape()"
+        />
+        <span id="twistValue">30</span>
+      </div>
+      <div>
+        <label>Height:</label>
+        <input
+          class="input1"
+          type="range"
+          id="height"
+          min="50"
+          max="300"
+          value="100"
+          onInput="updateShape()"
+        />
+        <span id="heightValue">100</span>
+      </div>
+      <div>
+        <label>Noise Scale:</label>
+        <input
+          class="input1"
+          type="range"
+          id="noiseScale"
+          min="1"
+          max="100"
+          value="20"
+          onInput="updateShape()"
+        />
+        <span id="noiseScaleValue">20</span>
+      </div>
+      <div>
+        <label>Noise Amount:</label>
+        <input
+          class="input1"
+          type="range"
+          id="noiseAmount"
+          min="0"
+          max="50"
+          value="15"
+          onInput="updateShape()"
+        />
+        <span id="noiseAmountValue">15</span>
+      </div>
+      <div>
+        <label>Min Radius:</label>
+        <input
+          class="input1"
+          type="range"
+          id="safeRadius"
+          min="10"
+          max="50"
+          value="30"
+          onInput="updateShape()"
+        />
+        <span id="safeRadiusValue">30</span>
+      </div>
+      <div>
+        <label>Layers</label>
+        <input
+          class="input1"
+          type="range"
+          id="layers"
+          min="4"
+          max="12"
+          value="8"
+          onInput="updateShape()"
+        />
+        <span id="layersValue">8</span>
+      </div>
+      <button onclick="exportSTL()">Export ASCII STL</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

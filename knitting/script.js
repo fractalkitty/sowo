@@ -1,4 +1,5 @@
-//draft - needs to be knitted to test
+//press r to get another hat
+//press s to save off file
 let stitches = [knit];
 let increases = [m1l, m1r, yo];
 let decreases = [ssk, k2tog];
@@ -10,13 +11,14 @@ let row2
 function setup() {
   cnv = createCanvas(800, 800);
   d = 13;
+  textWrap(WORD);
   stitchArray = [];
   patternArray = [];
   noLoop();
   rectMode(CENTER);
   textSize(9);
   textAlign(CENTER);
-  nPairs = random([3, 4, 5, 6]);
+  nPairs = random([3, 4,5,6,7]);
   cnt = 0;
   for (let i = 0; i < nPairs; i++) {
     stitchArray[cnt] = random(increases);
@@ -28,7 +30,7 @@ function setup() {
     stitchArray[cnt] = random(stitches);
     cnt++
   }
-  nPatternRows = random([3,4,5,6,7])
+  nPatternRows = random([3,4])
   for (let i = 0; i < nPatternRows; i++) {
     tmp = shuffle(stitchArray);
     patternArray[i] = tmp; // Create a new copy of the shuffled array
@@ -37,25 +39,17 @@ function setup() {
 }
 
 function draw() {
-  
   background(255);
-  translate(d, 0);
-  push()
   textSize(20)
   fill(0)
   noStroke()
   text("Generative Texture Hat", width/2-50,40)
-  pop()
   strokeWeight(1.5);
-  //ribbing
-  ribbing();
   row2 = 11;
   stroke(0);
   noFill();
-  nR = 30 / (nPatternRows*2)
-  for (let rep = 0; rep < nR; rep++) {
-    push()
-    translate(0,-((nPatternRows*2))*d*rep)
+  push() 
+    translate(100,-310+nPatternRows*d)
     for (let i = 0; i < patternArray.length; i++) {
       for (let j = 0; j < patternArray[i].length; j++) {
         let x = j * d + d / 2;
@@ -67,37 +61,20 @@ function draw() {
       }
       row2+=2
     }
-    pop()
-  }
+    
+  pop()
   push()
-  translate(d,0)
+  translate(100+d,360)
   closing()
   pop()
-// }
-  row1 = 1;
-  for (let i = 0; i < 53; i++) {
-    markRow();
-  }
+  push()
+  translate(150,100)
   legend()
+  pop()
   instructions()
 }
 
-function ribbing() {
-  y = 0;
-  for (let i = 1; i <= 10; i++) {
-    for (j = 0; j < 20; j++) {
-      let x = j * d + d / 2;
-      let y = height - i * d - d / 2;
-      noFill();
-      if (j % 2 === 0) {
-        knit(x, y);
-      } else {
-        purl(x, y);
-      }
-    }
-  }
-  noFill();
-}
+
 function closing(){
   push()
   nStitches = 20
@@ -152,10 +129,10 @@ function closing(){
 function legend(){
   push()
   stroke(0)
-
+textSize(14)
   x = width - width/3
   y = height - 200
-  rect(x-80,y-10,200,100)
+  rect(x-80,y-10,200,120)
   noFill()
   knit(x - 140,y-40)
   purl(x - 140,y-20)
@@ -185,12 +162,22 @@ function instructions(){
   fill(0)
   textAlign(LEFT)
   textSize(14)
-  text("1.) Cast on 100 stitches to a size 3.5mm circular or dpn.",320,100)
-  text("2.) Create ribbing to desired length or rows 1-10 repeated 5x",320,120);
-  text("3.) Change to larger needles (4mm)",320,140);
-  text("4.) Follow pattern from row 11 to 53 (repeat 5x per row).",320,160);
-  text("5.) Close last 4 stitches by sewing thread through and finishing.",320,180);
+  text("Chart A", 30,350)
+  text("Chart B", 30,550)
+  text("About 220yds of worsted weight yarn. Pattern is for medium-small hat - increase needle size by 0.5mm to make medium.",400,70,width-200)
+  push()
+  translate(0,20)
+  text("1.) Cast on 100 stitches to 3.5mm circular or dpn.(Place marker).",100,120)
+  text("2.) Create ribbing to desired length by repeating {k,p} for 10-15 rows.",100,140);
+  text("3.) Change to larger needles (4mm).",100,160);
+  text("4.) Follow chart A (from bottom right) 4-6 times (5x per round) so the length of the pattern is 5.5-6in. ",100,180);
+  text("5.) Follow Chart B once (from bottom right). ",100,200);
+  text("7.) When 20sts remain, repeat {ssk,k,k} until 6-8sts remain.",100,220);
+  text("8.) Loop last sts through yarn to finish and weave ends in.",100,240);
   pop()
+  text("Hat is worked with repeated panels of charts. For a large hat, cast on 120sts and repeat 6x instead of 5x and adjust to desired height.", 600,350,200)
+  pop()
+  
   
 }
 function markRow() {
@@ -254,3 +241,21 @@ function keyPressed() {
     draw();
   }
 }
+
+
+// function ribbing() {
+//   y = 0;
+//   for (let i = 1; i <= 10; i++) {
+//     for (j = 0; j < 20; j++) {
+//       let x = j * d + d / 2;
+//       let y = height - i * d - d / 2;
+//       noFill();
+//       if (j % 2 === 0) {
+//         knit(x, y);
+//       } else {
+//         purl(x, y);
+//       }
+//     }
+//   }
+//   noFill();
+// }
