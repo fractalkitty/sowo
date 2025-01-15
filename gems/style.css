@@ -76,3 +76,9 @@ button:hover {
   background: #ddd;
   height: 4px;
 }
+
+span[id$="Value"] {
+  min-width: 35px; /* Adjust this value based on your needs */
+  display: inline-block;
+  text-align: right;
+}
